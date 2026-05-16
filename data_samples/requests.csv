@@ -1,0 +1,41 @@
+request_id,facility_id,category,need_type,request_text,items,quantity,urgency_level,children_affected,location,date_submitted,hours_since_posted,facility_fulfilment_rate,is_duplicate,status,cash_equivalent,priority_score
+R001,F001,Food,Kind,Urgently need food supplies,Rice | Beans | Oil,50 | 30 | 20,High,60,Lagos,3/18/2026,30,0.85,No,Active,50000,90
+R002,F002,Education,Either,Need school materials,Books | Pens | Pencils,30 | 50 | 40,Medium,35,Ibadan,3/19/2026,10,0.75,No,Active,40000,50
+R003,F003,Medical,Kind,Malaria treatment support,Drugs | Test kits,20 | 15,High,20,Lagos,3/20/2026,26,0.4,No,Active,70000,75
+R004,F001,Clothing,Cash,Need clothing,T-Shirts | Shorts,40 | 30,Medium,45,Lagos,3/21/2026,8,0.85,No,Active,30000,35
+R005,F005,Food,Kind,Food shortage,Yam | Potatoes,45 | 30,High,50,Ibadan,3/22/2026,40,0.6,No,Active,65000,80
+R006,F004,Education,Either,Books and uniforms,Books | Uniforms,25 | 20,Medium,30,Ibadan,3/23/2026,15,0.75,No,Active,50000,60
+R007,F002,Food,Kind,Emergency food needed,Beverages | Eggs,60 | 25,High,70,Lagos,3/24/2026,50,0.9,No,Active,55000,95
+R008,F005,Medical,Kind,Need medical supplies,Gloves | Bandages,20 |10 ,High,25,Ibadan,3/25/2026,20,0.4,No,Active ,45000,75
+R009,F003,Food,Kind,Food supplies low,Oil | Tomatoes,30 | 20,High,55,Lagos,3/26/2026,60,0.85,No,Active,70000,95
+R010,F006,Shelter,Either,Repair of damaged windows,New windows,25,Low,45,Lagos,3/27/2026,5,0.65,No,Active,70000,20
+R011,F002,Clothing,Either,Need clothing for children,Gowns | Skirts,35 | 20,Medium,45,Ibadan,3/28/2026,18,0.75,No,Active,32000,60
+R012,F003,Medical,Cash,Need drugs for sick children,Vitamins | Blood tonics,20 | 15,High,35,Lagos,3/29/2026,22,0.6,No,Active,70000,65
+R013,F004,Other,Cash,Need play materials,Toys | Balls,20 | 15,Low,40,Ibadan,3/30/2026,48,0.9,No,Active,20000,95
+R014,F001,Education,Cash,Writing materials,Notebooks | Pencils,30 | 25 ,Medium,50,Lagos,3/31/2026,12,0.65,No,Active,31000,60
+R015,F007,Other,Either,Need toiletries,Tissue paper | Disinfectant,20 | 25,Medium,40,Lagos,4/1/2026,55,0.85,No,Active,25000,95
+R016,F002,Education,Either,School supplies for kids,Books | Bags,25 | 20,Medium,33,Ibadan,4/2/2026,14,0.75,No,Active,45000,60
+R017,F003,Medical,Kind,Treatment needed for kids,Drugs | Test kits,18 | 10,High,18,Lagos,4/3/2026,36,0.4,No,Active,70000,80
+R018,F004,Clothing,Kind,Bedding and clothes,Blankets | Bedsheets,30 | 38,Medium,42,Ibadan,4/4/2026,6,0.6,No,Active,28000,35
+R019,F005,Food,Cash,Food items needed,Rice | Beans  | Salt,60 | 40 25,High,68,Lagos,4/5/2026,70,0.9,No,Active,70000,95
+R020,F006,Shelter,Cash,Repair of Damaged roof,Roofing sheets | Nails,15 | 25,Low,30,Lagos,4/6/2026,9,0.65,No,Active,45000,20
+R021,F001,Food,Either,Food shortage,Yam | Palm Oil,55 | 25,High,58,Lagos,4/7/2026,30,0.85,No,Active,70000,90
+R022,F002,Education,Cash,Learning materials,Textbooks | Drawing books,25 | 35,Medium,40,Ibadan,4/8/2026,16,0.75,No,Active,35000,60
+R023,F003,Medical,Kind,Need medical supplies,Drugs | Vitamins,15 | 10,High,21,Lagos,4/9/2026,44,0.4,No,Active,70000,80
+R024,F004,Clothing,Kind,Need clothes for children,T-Shirts  | Trousers,35 | 20 ,Medium,38,Ibadan,4/10/2026,11,0.6,No,Active,40000,50
+R025,F005,Food,Either,Urgently need food supplies,Biscuits | Cereals,30 | 25,High,62,Lagos,4/11/2026,52,0.9,No,Active,70000,95
+R026,F006,Other,Cash,Sports items,Footballs | Handballs,15 | 10,Low,34,Lagos,4/12/2026,7,0.65,No,Active,18000,20
+R027,F001,Food,Kind,Food items needed,Oil | Tomatoes,35 | 30,High,72,Lagos,4/13/2026,65,0.85,No,Active,65000,95
+R028,F002,Education,Either,Learning materials,Notebooks | Literatures,15 | 10 ,Medium,31,Ibadan,4/14/2026,13,0.75,No,Active,21000,60
+R029,F003,Medical,Kind,Medical assistance required,First Aid kits,15,High,19,Ibadan,4/15/2026,28,0.4,No,Active,45000,80
+R030,F004,Clothing,Kind,Seasonal clothes,Jackets | Sweaters,18 | 10,Medium,44,Ibadan,4/16/2026,10,0.6,No,Active,68000,50
+R031,F005,Food,Cash,Severe food shortage,Rice | Yam | Fish,30 | 28 | 15,High,66,Lagos,4/17/2026,72,0.9,No,Active,70000,95
+R032,F006,Other,Cash,Beddings,Foams | Pillows,10 | 15,Low,36,Lagos,4/18/2026,6,0.65,No,Active,70000,20
+R033,F007,Food,Kind,Food supplies low,Oil  | Salt,40 | 25,High,74,Lagos,4/19/2026,68,0.85,No,Active,68000,95
+R034,F008,Shelter,Either,Repair of damaged doors,Woods | Nails,5 | 15,Medium,27,Ibadan,4/20/2026,14,0.75,No,Active,43000,60
+R035,F009,Medical,Cash,Medical kits,Drugs | Fluids,23 | 20,High,33,Lagos,4/21/2026,38,0.4,No,Active,70000,80
+R036,F010,Clothing,Kind,Children need clothes,Skirts | Gowns,15 | 25 ,Medium,40,Ibadan,4/22/2026,9,0.6,No,Active,23000,50
+R037,F011,Other,Cash,Children need footwears,Sandals | Shoes,20 | 22 ,Medium,45,Ibadan,4/23/2026,50,0.9,No,Active,70000,95
+R038,F012,Other,Cash,Need kitchen utensils,Pots | Plates | Spoons,10 | 25 | 15 ,Low,40,Lagos,4/24/2026,5,0.65,No,Active,70000,20
+R039,F013,Other,Either,Toiletries,Bathing soap | Body creams,25 | 20,Medium,50,Ibadan,4/25/2026,80,0.85,No,Active,70000,95
+R040,F014,Food,Cash,Food urgently needed,Oil | Tomatoes,25 | 40 ,High,76,Ibadan,4/26/2027,12,0.75,No,Active,70000,60

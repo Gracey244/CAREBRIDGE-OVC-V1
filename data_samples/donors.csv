@@ -1,0 +1,41 @@
+donor_id,donor_name,preferred_category,preferred_type,location,budget,donation_count,last_donation_days
+D001,Helping Hands Foundation,Other,Kind,Lagos,60000,25,3
+D002,Education Trust,Other,Either,Ibadan,48000,18,10
+D003,Health Aid,Medical,Kind,Lagos,120000,12,7
+D004,Adams Stitches,Clothing,Either,Ibadan,36000,8,20
+D005,Food Bank,Food,Cash,Ibadan,72000,15,5
+D006,Rock Foundation,Education,Kind,Lagos,150000,22,2
+D007,Global Relief,Food,Either,Lagos,84000,30,1
+D008,Noble Path ,Shelter,Either,Ibadan,48000,10,15
+D009,MedAssist,Medical,Cash,Lagos,42000,6,25
+D010,Community Givers,Medical,Either,Ibadan,36000,28,4
+D011,Chuks Enterprises,Shelter,Cash,Lagos,30000,14,12
+D012,Oasis Stores,Clothing,Kind,Ibadan,54000,5,40
+D013,School Supporters,Education,Kind,Lagos,24000,20,6
+D014,Fidelity Company,Food,Either,Ibadan,48000,17,9
+D015,Zenith Company,Medical,Cash,Lagos,36000,11,18
+D016,ActionAid,Other,Kind,Lagos,24000,7,22
+D017,Save the Children,Food,Either,Lagos,78000,16,8
+D018,African Development Bank,Education,Cash,Ibadan,162000,24,3
+D019,Salvation Army,Medical,Either,Ibadan,39600,9,14
+D020,World Baptist Alliance,Clothing,Either,Ibadan,34800,13,11
+D021,EcoBank Foundation,Food,Kind,Lagos,62400,6,30
+D022,Zenith Bank Foundation,Education,Either,Lagos,132000,21,5
+D023,Aliko Dangote,Shelter,Either,Lagos,180000,19,6
+D024,Folorunso Alakija,Clothing,Kind,Ibadan,25200,10,13
+D025,All Saints Anglican Church,Food,Cash,Ibadan,69600,8,17
+D026,Redeemed Christian Church of God,Other,Kind,Lagos,24000,4,45
+D027,GTBank Foundation,Food,Either,Lagos,86400,23,2
+D028,St. Francis Anglican Church,Food,Cash,Ibadan,50400,26,4
+D029,Ganaja Medical Clinic,Medical,Either,Lagos,40800,15,9
+D030,Zara Clothings,Clothing,Either,Ibadan,37200,7,28
+D031,Tony Elumelu Foundation,Food,Kind,Lagos,144000,9,16
+D032,Deeper Life Bible Church,Education,Either,Ibadan,39600,18,7
+D033,Zephaniah Furnitures,Shelter,Kind,Lagos,33600,20,5
+D034,Methodist Church Nigeria,Clothing,Kind,Ibadan,66000,12,12
+D035,Vineyard Church ,Food,Either,Lagos,72000,6,35
+D036,Okoya's Foundation,Other,Cash,Lagos,24000,5,40
+D037,MTN Foundation,Food,Either,Lagos,90000,17,6
+D038,Living Faith Church (Winners Chapel),Food,Cash,Ibadan,156000,27,3
+D039,City Hope Laboratory,Medical,Either,Ibadan,43200,14,10
+D040,Olusegun Obasanjo,Shelter,Cash,Ibadan,38400,8,21
