@@ -1,9 +1,9 @@
 # CareBridge OVC Matching Engine — API Contract
 
-Base URL: `https://your-app-name.onrender.com`  
-*(Replace with your actual Render URL after deployment)*
+Base URL: https://carebridge-ovc-v1.onrender.com
 
-All endpoints accept and return **JSON**.  
+
+All endpoints accept and return JSON.  
 All `POST` endpoints expect the same request body structure.
 
 
@@ -168,4 +168,4 @@ Does **not** run the matching engine, so it's fast.
 - A donor is considered **busy** if they have a donation with `status: "Pending"`.
 - Only requests with `status: "Active"` are processed by `/match`.
 - Interactive docs (auto-generated) are available at:  
-  `https://your-app-name.onrender.com/docs`
+  `https://carebridge-ovc-v1.onrender.com/docs`
