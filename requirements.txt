@@ -1,2 +1,6 @@
 pandas
 numpy
+fastapi
+uvicorn[standard]
+pydantic
+streamlit
