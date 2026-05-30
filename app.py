@@ -3,7 +3,6 @@ CareBridge OVC Matching Engine — REST API
 Deploy with: uvicorn api:app --host 0.0.0.0 --port 8000
 """
 
-import io
 import traceback
 from typing import Any, Dict, List
 
@@ -41,7 +40,7 @@ app.add_middleware(
 class MatchRequest(BaseModel):
     """
     The backend sends three lists of records — one per data source.
-    Each record is a plain dict that mirrors a row in the corresponding CSV.
+    Each record mirrors a row in the corresponding CSV.
 
     Example payload:
     {
@@ -50,29 +49,42 @@ class MatchRequest(BaseModel):
           "request_id": "R001",
           "facility_id": "F001",
           "category": "Food",
+          "need_type": "Cash",
+          "request_text": "We need food supplies",
+          "items": "Rice, Beans",
+          "quantity": 20, 10, 
           "urgency_level": "High",
-          "status": "Active",
+          "children_affected": 30,
+          "location": "Lagos",
+          "date_submitted": "2026-05-01",
           "hours_since_posted": 5,
+          "facility_fulfilment_rate": 0.6,
           "is_duplicate": false,
-          "fulfillment_rate": 0.6
+          "status": "Active",
+          "cash_equivalent": 50000,
+          "priority_score": 90
         }
       ],
       "donors": [
         {
           "donor_id": "D001",
+          "donor_name": "John Doe",
           "preferred_category": "Food",
-          "need_type": "Either",
+          "preferred_type": "Cash",
           "location": "Lagos",
-          "total_donations": 10,
-          "last_donation_days_ago": 3
+          "budget": 100000,
+          "donation_count": 10,
+          "last_donation_days": 3
         }
       ],
       "donations": [
         {
-          "donation_id": "DON001",
-          "donor_id": "D001",
+          "donation_id": "DN001",
           "request_id": "R001",
-          "status": "Pending"
+          "donor_id": "D001",
+          "amount": 50000,
+          "status": "Pending",
+          "date": "2026-05-01"
         }
       ]
     }
@@ -82,15 +94,10 @@ class MatchRequest(BaseModel):
     donations: List[Dict[str, Any]]
 
 
-class MatchedDonor(BaseModel):
-    donor_id: str
-    rank: int
-
-
 class MatchResult(BaseModel):
     request_id: str
     priority_score: float
-    matched_donors: List[Any]  # keeps flexibility — engine may return dicts or ids
+    matched_donors: List[Any]   # engine may return dicts or ids
 
 
 class MatchResponse(BaseModel):
@@ -105,8 +112,8 @@ class StatsResponse(BaseModel):
     total_donations: int
     active_requests: int
     inactive_requests: int
-    busy_donors: int        # donors with a pending donation
-    available_donors: int   # donors free to be matched
+    busy_donors: int         # donors with a Pending donation
+    available_donors: int    # donors free to be matched
     pending_donations: int
     completed_donations: int
 
@@ -131,15 +138,28 @@ def match_donors(payload: MatchRequest):
     - Requests are returned in descending priority order.
     """
     try:
-        # Convert incoming JSON to DataFrames (same format the engine expects)
-        requests_df = pd.DataFrame(payload.requests)
-        donors_df = pd.DataFrame(payload.donors)
+        requests_df  = pd.DataFrame(payload.requests)
+        donors_df    = pd.DataFrame(payload.donors)
         donations_df = pd.DataFrame(payload.donations)
 
-        # Validate that the minimum required columns exist
-        _validate_columns(requests_df, ["request_id", "status"], "requests")
-        _validate_columns(donors_df, ["donor_id"], "donors")
-        _validate_columns(donations_df, ["donor_id", "status"], "donations")
+        # Validate minimum required columns using your actual CSV column names
+        _validate_columns(
+            requests_df,
+            ["request_id", "status", "urgency_level", "hours_since_posted",
+             "facility_fulfilment_rate", "is_duplicate", "category", "need_type"],
+            "requests"
+        )
+        _validate_columns(
+            donors_df,
+            ["donor_id", "preferred_category", "preferred_type",
+             "location", "donation_count", "last_donation_days"],
+            "donors"
+        )
+        _validate_columns(
+            donations_df,
+            ["donor_id", "status"],
+            "donations"
+        )
 
         # Run the engine
         results_df = run_matching_engine(requests_df, donors_df, donations_df)
@@ -180,11 +200,10 @@ def match_single_request(payload: MatchRequest, request_id: str):
     Useful for the backend to re-run matching after a donor declines.
     """
     try:
-        requests_df = pd.DataFrame(payload.requests)
-        donors_df = pd.DataFrame(payload.donors)
+        requests_df  = pd.DataFrame(payload.requests)
+        donors_df    = pd.DataFrame(payload.donors)
         donations_df = pd.DataFrame(payload.donations)
 
-        # Filter to the single request
         filtered = requests_df[requests_df["request_id"] == request_id]
         if filtered.empty:
             raise HTTPException(
@@ -215,9 +234,7 @@ def match_single_request(payload: MatchRequest, request_id: str):
 def get_stats(payload: MatchRequest):
     """
     Returns a summary of the data sent in the request body.
-
-    Useful for the frontend dashboard to display live counts
-    without running the full matching engine.
+    Useful for frontend dashboard counters without running the full engine.
 
     Example response:
     {
@@ -249,9 +266,9 @@ def get_stats(payload: MatchRequest):
         pending_donations   = int((donations_df["status"] == "Pending").sum())
         completed_donations = int((donations_df["status"] == "Completed").sum())
 
-        # Donor availability (mirrors engine logic — busy = has a pending donation)
-        busy_donor_ids  = set(donations_df[donations_df["status"] == "Pending"]["donor_id"])
-        busy_donors     = int(donors_df["donor_id"].isin(busy_donor_ids).sum())
+        # Donor availability — mirrors engine logic exactly
+        busy_donor_ids   = set(donations_df[donations_df["status"] == "Pending"]["donor_id"])
+        busy_donors      = int(donors_df["donor_id"].isin(busy_donor_ids).sum())
         available_donors = len(donors_df) - busy_donors
 
         return StatsResponse(

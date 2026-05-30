@@ -9,41 +9,51 @@ All `POST` endpoints expect the same request body structure.
 
 ## Request Body (shared across all POST endpoints)
 
-```json
 {
   "requests": [
     {
       "request_id": "R001",
       "facility_id": "F001",
       "category": "Food",
+      "need_type": "Cash",
+      "request_text": "We need food supplies",
+      "items": "Rice, Beans",
+      "quantity": 20, 10,
       "urgency_level": "High",
-      "status": "Active",
+      "children_affected": 30,
+      "location": "Lagos",
+      "date_submitted": "2026-05-01",
       "hours_since_posted": 5,
+      "facility_fulfilment_rate": 0.6,
       "is_duplicate": false,
-      "fulfillment_rate": 0.6
+      "status": "Active",
+      "cash_equivalent": 50000,
+      "priority_score": 90
     }
   ],
   "donors": [
     {
       "donor_id": "D001",
+      "donor_name": "John Doe",
       "preferred_category": "Food",
-      "need_type": "Either",
+      "preferred_type": "Cash",
       "location": "Lagos",
-      "total_donations": 10,
-      "last_donation_days_ago": 3
+      "budget": 100000,
+      "donation_count": 10,
+      "last_donation_days": 3
     }
   ],
   "donations": [
     {
-      "donation_id": "DON001",
-      "donor_id": "D001",
+      "donation_id": "DN001",
       "request_id": "R001",
-      "status": "Pending"
+      "donor_id": "D001",
+      "amount": 50000,
+      "status": "Pending",
+      "date": "2026-05-01"
     }
   ]
 }
-```
-
 
 ## Endpoints
 
