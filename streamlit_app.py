@@ -68,56 +68,86 @@ if data_source == "Upload CSV files":
             st.success(f"✅ {len(donations_df)} donations loaded")
 
 else:
-    # ── Minimal sample data so the app works out of the box ──────────────────
+    # ── Sample data matching exact column names from your real CSVs ──────────
     requests_df = pd.DataFrame([
         {
             "request_id": "R001", "facility_id": "F001", "category": "Food",
-            "urgency_level": "High", "status": "Active",
-            "hours_since_posted": 2, "is_duplicate": False, "fulfillment_rate": 0.4,
+            "need_type": "Kind", "request_text": "Urgently need food supplies",
+            "items": "Rice, Beans, Oil", "quantity": "50, 30, 20",
+            "urgency_level": "High", "children_affected": 60,
+            "location": "Lagos", "date_submitted": "2026-03-18",
+            "hours_since_posted": 30, "facility_fulfilment_rate": 0.85,
+            "is_duplicate": False, "status": "Active",
+            "cash_equivalent": 50000, "priority_score": 90,
         },
         {
             "request_id": "R002", "facility_id": "F002", "category": "Medical",
-            "urgency_level": "Medium", "status": "Active",
-            "hours_since_posted": 10, "is_duplicate": False, "fulfillment_rate": 0.7,
+            "need_type": "Cash", "request_text": "Need medical supplies urgently",
+            "items": "Drugs, Bandages", "quantity": "10, 50",
+            "urgency_level": "Medium", "children_affected": 20,
+            "location": "Abuja", "date_submitted": "2026-03-19",
+            "hours_since_posted": 10, "facility_fulfilment_rate": 0.60,
+            "is_duplicate": False, "status": "Active",
+            "cash_equivalent": 30000, "priority_score": 0,
         },
         {
             "request_id": "R003", "facility_id": "F001", "category": "Education",
-            "urgency_level": "Low", "status": "Active",
-            "hours_since_posted": 48, "is_duplicate": True, "fulfillment_rate": 0.9,
+            "need_type": "Kind", "request_text": "Need school supplies",
+            "items": "Books, Pens", "quantity": "100, 200",
+            "urgency_level": "Low", "children_affected": 40,
+            "location": "Lagos", "date_submitted": "2026-03-20",
+            "hours_since_posted": 48, "facility_fulfilment_rate": 0.90,
+            "is_duplicate": True, "status": "Active",
+            "cash_equivalent": 20000, "priority_score": 0,
         },
         {
             "request_id": "R004", "facility_id": "F003", "category": "Food",
-            "urgency_level": "High", "status": "Inactive",
-            "hours_since_posted": 1, "is_duplicate": False, "fulfillment_rate": 0.2,
+            "need_type": "Cash", "request_text": "Need cash for food procurement",
+            "items": "Rice", "quantity": "100",
+            "urgency_level": "High", "children_affected": 80,
+            "location": "Kano", "date_submitted": "2026-03-21",
+            "hours_since_posted": 1, "facility_fulfilment_rate": 0.20,
+            "is_duplicate": False, "status": "Inactive",
+            "cash_equivalent": 80000, "priority_score": 0,
         },
     ])
 
     donors_df = pd.DataFrame([
         {
-            "donor_id": "D001", "preferred_category": "Food",
-            "need_type": "Either", "location": "Lagos",
-            "total_donations": 15, "last_donation_days_ago": 3,
+            "donor_id": "D001", "donor_name": "Helping Hands Foundation",
+            "preferred_category": "Food", "preferred_type": "Kind",
+            "location": "Lagos", "budget": 60000,
+            "donation_count": 25, "last_donation_days": 3,
         },
         {
-            "donor_id": "D002", "preferred_category": "Medical",
-            "need_type": "Cash", "location": "Ibadan",
-            "total_donations": 8, "last_donation_days_ago": 7,
+            "donor_id": "D002", "donor_name": "Care Foundation",
+            "preferred_category": "Medical", "preferred_type": "Cash",
+            "location": "Abuja", "budget": 40000,
+            "donation_count": 10, "last_donation_days": 7,
         },
         {
-            "donor_id": "D003", "preferred_category": "Education",
-            "need_type": "Goods", "location": "Lagos",
-            "total_donations": 20, "last_donation_days_ago": 1,
+            "donor_id": "D003", "donor_name": "Education First NGO",
+            "preferred_category": "Education", "preferred_type": "Kind",
+            "location": "Lagos", "budget": 25000,
+            "donation_count": 15, "last_donation_days": 1,
         },
         {
-            "donor_id": "D004", "preferred_category": "Food",
-            "need_type": "Either", "location": "Ibadan",
-            "total_donations": 5, "last_donation_days_ago": 14,
+            "donor_id": "D004", "donor_name": "Food for All",
+            "preferred_category": "Food", "preferred_type": "Cash",
+            "location": "Kano", "budget": 90000,
+            "donation_count": 5, "last_donation_days": 14,
         },
     ])
 
     donations_df = pd.DataFrame([
-        {"donation_id": "DON001", "donor_id": "D002", "request_id": "R002", "status": "Pending"},
-        {"donation_id": "DON002", "donor_id": "D003", "request_id": "R001", "status": "Completed"},
+        {
+            "donation_id": "DN001", "request_id": "R002", "donor_id": "D002",
+            "amount": 30000, "status": "Pending", "date": "2026-03-15",
+        },
+        {
+            "donation_id": "DN002", "request_id": "R001", "donor_id": "D001",
+            "amount": 50000, "status": "Completed", "date": "2026-03-10",
+        },
     ])
 
     st.info("ℹ️ Using built-in sample data. Switch to **Upload CSV files** in the sidebar to use your own.")
